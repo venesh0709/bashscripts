@@ -1,0 +1,12 @@
+#!/bin/bash
+hostname
+cd / &&
+cd /var/www/miq/vmdb/tools &&
+unzip cloudforms_4.X_log_collection-master.zip &&
+cd cloudforms_4.X_log_collection-master &&
+bash collect_CFME_current_script.sh &&
+cd /var/www/miq/vmdb/log/ &&
+rm -rf /home/logs.sh
+hostname
+hostname -I
+
