@@ -6,7 +6,7 @@ v=$(cat /etc/redhat-release)
 
 echo $v
 
-if [[ $v = "Red Hat Enterprise Linux Server release 7.5 (Maipo)" ]] || [[ $v = "Red Hat Enterprise Linux Server release 7.4 (Maipo)" ]]; then
+if [[ $v = "Red Hat Enterprise Linux Server release 7.5 (Maipo)" ]]; then
    echo "$(tput setaf 1)Removing the redhat-access-insights :-( $(tput sgr 0)"
    yum remove redhat-access-insights
    echo "$(tput setaf 2)Now, Installing the Insights-client.... :-) $(tput sgr 0)"
@@ -14,15 +14,15 @@ if [[ $v = "Red Hat Enterprise Linux Server release 7.5 (Maipo)" ]] || [[ $v = "
    echo "$(tput setaf 2)Registering this machine to Redhat Insights!! $(tput sgr 0)"
    insights-client --register
 else
-   echo "$(tput setaf 1)$(tput setab 7)This is not the RHEL 7.5 or 7.4 Maipo$(tput sgr 0)"
+   echo "$(tput setaf 1)$(tput setab 7)This is not the RHEL 7.5 Maipo$(tput sgr 0)"
 fi
 
 echo "$(tput setaf 1)Removing the insights-client.sh file in /root directory$(tput sgr 0)"
 rm -f /root/insights-client.sh
 
-echo "$(tput setaf 4)Checking the redhat-access-insights existence$(tput sgr 0)"
+echo "$(tput setaf 6)Checking the redhat-access-insights existence$(tput sgr 0)"
 which redhat-access-insights
-echo "$(tput setaf 4)Checking the Insights-clients existence$(tput sgr 0)"
+echo "$(tput setaf 6)Checking the Insights-clients existence$(tput sgr 0)"
 which insights-client
 : '
 (tput setaf 1)
